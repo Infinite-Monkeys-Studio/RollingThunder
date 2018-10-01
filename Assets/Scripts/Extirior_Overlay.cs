@@ -4,34 +4,26 @@ using UnityEngine;
 
 public class Extirior_Overlay : MonoBehaviour {
 
-	public RenderTexture outside;
-	public Texture sky;
-	public bool render_background;
-	public CameraClearFlags inside_clearflags;
-	public CameraClearFlags outside_clearflags;
+	public RenderTexture inside;
+	public bool render_inside;
+	public float offset_X;
+	public float offset_Y;
+	public float width;
+	public float height;
 
-	private Camera cam;
 
 	void Start () {
-		cam = GetComponent<Camera> ();
+
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (render_background) {
-			cam.clearFlags = inside_clearflags;
-		} else {
-			cam.clearFlags = outside_clearflags;
-		}
+
 	}
 
 	void OnGUI() {
-		if (render_background) {
-			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), sky);
-
-			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), outside);
-
-			cam.Render ();
+		if (render_inside) {
+			GUI.DrawTexture (new Rect (offset_X, offset_Y, width, height), inside);
 		}
 	}
 }
