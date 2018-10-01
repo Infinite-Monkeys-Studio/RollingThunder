@@ -26,4 +26,8 @@ public class Extirior_Overlay : MonoBehaviour {
 			GUI.DrawTexture (new Rect (offset_X, offset_Y, width, height), inside);
 		}
 	}
+
+	void enable(bool en) {
+		render_inside = en;
+	}
 }

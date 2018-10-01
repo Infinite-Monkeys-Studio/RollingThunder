@@ -8,14 +8,11 @@ public class Vehicle_Inside : MonoBehaviour {
 	public Transform spawn;
 	public Collider2D exit;
 	public string Rider_tag;
-	
+	public Camera Player_Cam;
+	public Camera Extirior_Cam;
+
 	ContactFilter2D filter;
 
-	// Use this for initialization
-	void Start () {
-		//filter.layerMask = Can_Ride;
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		Collider2D[] cols = new Collider2D[20];
@@ -32,6 +29,9 @@ public class Vehicle_Inside : MonoBehaviour {
 	}
 
 	void enter(Transform t) {
+		Player_Cam.enabled = false;
+		//Extirior_Cam.enabled = true;
+		Extirior_Cam.SendMessage ("enable", true);
 		t.position = spawn.position;
 	}
 }

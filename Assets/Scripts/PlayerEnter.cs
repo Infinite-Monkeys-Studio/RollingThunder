@@ -9,14 +9,11 @@ public class PlayerEnter : MonoBehaviour {
 	public string Rider_Tag;
 	public Transform Intirior;
 	public Transform exit_spawn;
+	public Camera Player_Cam;
+	public Camera Extirior_Cam;
 
 	ContactFilter2D filter;
 
-	// Use this for initialization
-	void Start () {
-		//filter.layerMask = Can_Ride;
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		Collider2D[] cols = new Collider2D[20];
@@ -33,6 +30,10 @@ public class PlayerEnter : MonoBehaviour {
 	}
 
 	void exit(Transform t) {
+
+		Player_Cam.enabled = true;
+		//Extirior_Cam.enabled = false;
+		Extirior_Cam.SendMessage ("enable", false);
 		t.position = exit_spawn.position;
 		return;
 	}
