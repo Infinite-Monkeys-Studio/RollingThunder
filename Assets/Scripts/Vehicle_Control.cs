@@ -14,7 +14,7 @@ public class Vehicle_Control : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (throttle.jointTranslation);
+		//Debug.Log (throttle.jointTranslation);
 		foreach (WheelJoint2D j in GetComponents<WheelJoint2D> ()) {
 			JointMotor2D m = j.motor;
 			m.motorSpeed = max_speed * throttle.jointTranslation * -1f;
