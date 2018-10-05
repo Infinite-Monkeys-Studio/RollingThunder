@@ -9,9 +9,6 @@ public class CameraOrganizer : MonoBehaviour {
 	public class CameraView {
 		public string name;
 		public Camera[] CameraList;
-		public string[] updateMessages;
-		public string[] fixedUpdateMessages;
-		public string[] GUIMessages;
 	}
 
 	[SerializeField] private CameraView[] ViewList;
@@ -23,30 +20,9 @@ public class CameraOrganizer : MonoBehaviour {
 
 	void Start() {
 		OnSwitchEvent = new IntEvent ();
-	}
 
-	void Update() {
-		if (ViewList [activeViewId].updateMessages != null) {
-			foreach (string message in ViewList[activeViewId].updateMessages) {
-				SendMessage (message);
-			}
-		}
-	}
-
-	void FixedUpdate() {
-		if (ViewList [activeViewId].fixedUpdateMessages != null) {
-			foreach (string message in ViewList[activeViewId].fixedUpdateMessages) {
-				SendMessage (message);
-			}
-		}
-	}
-
-	void OnGUI() {
-		if (ViewList [activeViewId].GUIMessages != null) {
-			foreach (string message in ViewList[activeViewId].GUIMessages) {
-				SendMessage (message);
-			}
-		}
+		alloff ();
+		switchTo (activeViewId);
 	}
 
 	public bool switchTo(string viewName) {
@@ -60,10 +36,6 @@ public class CameraOrganizer : MonoBehaviour {
 	}
 
 	public bool switchTo(int newViewId) {
-		//check we arn't already on this view
-		if (newViewId == activeViewId)
-			return false;
-
 		CameraView oldView = ViewList [activeViewId];
 		CameraView newView = ViewList [newViewId];
 
@@ -80,5 +52,13 @@ public class CameraOrganizer : MonoBehaviour {
 		activeViewId = newViewId;
 		OnSwitchEvent.Invoke (activeViewId);
 		return true;
+	}
+
+	void alloff() {
+		foreach (CameraView view in ViewList) {
+			foreach(Camera cam in view.CameraList) {
+				cam.enabled = false;
+			}
+		}
 	}
 }
