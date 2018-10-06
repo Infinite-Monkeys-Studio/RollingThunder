@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Station_Control : MonoBehaviour {
 
+	public ControlOrganizer organizer;
+	public Controller GunController;
 	public Collider2D Interactable_Area;
 	public string Player_Tag;
 	public SpriteRenderer Interactable_Indicator;
 	public bool Enter_Station;
-	public Transform Lock_Posistion;
-	public Transform Controller;
 
 	bool interacting = false;
 	bool inArea = false;
@@ -56,7 +56,7 @@ public class Station_Control : MonoBehaviour {
 		if (inArea && interacting) {
 			Interactable_Indicator.transform.Rotate (0, 0, 10);
 			if(Enter_Station) {
-				//Controller.SendMessage(("OnEnter", player, Lock_Posistion);
+				organizer.SendMessage("switchTo", GunController.name);
 			}
 		} else {
 			Interactable_Indicator.transform.rotation = new Quaternion(0, 0, 0, 0);

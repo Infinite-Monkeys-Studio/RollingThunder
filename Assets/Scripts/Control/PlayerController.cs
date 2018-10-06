@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : Controller {
 
 	public CharacterController2D controller;
 
@@ -11,21 +11,33 @@ public class PlayerController : MonoBehaviour {
 	bool crouch = false;
 
 	void Update() {
-		horizontalMove = Input.GetAxisRaw ("Horizontal");
+		if (active) {
+			horizontalMove = Input.GetAxisRaw ("Horizontal");
 	
-		if (Input.GetButtonDown ("Jump")) {
-			jump = true;
-		}
+			if (Input.GetButtonDown ("Jump")) {
+				jump = true;
+			}
 
-		if (Input.GetAxisRaw ("Vertical") < -0.5f) {
-			crouch = true;
-		} else {
-			crouch = false;
+			if (Input.GetAxisRaw ("Vertical") < -0.5f) {
+				crouch = true;
+			} else {
+				crouch = false;
+			}
 		}
 	}
 
 	void FixedUpdate() {
-		controller.Move (horizontalMove, crouch, jump);
-		jump = false;
+		if (active) {
+			controller.Move (horizontalMove, crouch, jump);
+			jump = false;
+		}
+	}
+
+	public override void OnSwitchTo() {
+		active = true;
+	}
+
+	public override void OnSwitchFrom() { 
+		active = false;
 	}
 }
