@@ -4,35 +4,19 @@ using UnityEngine;
 
 public class Gun_Controller : Controller {
 
-	public Transform ExitPosition;
-	public Transform UsingPosition;
 	public float fireRate;
 	public Transform Barrel;
 	public GameObject bullet;
 	public float bulletSpeed;
 
-
-	Transform player;
 	bool firstTime = true;
 	bool shooting = false;
 	float fireDelay = 0;
 
-	// Use this for initialization
-	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player").transform;
-	}
-	
 	// Update is called once per frame
 	void Update () {
+		base.Update ();
 		if (active) {
-			if(Input.GetButtonDown("Interact")) {
-				if(firstTime) {
-					firstTime = false;
-				} else {
-					organizer.switchTo(player.GetComponent<Controller>().name);
-				}
-			}
-
 			if(Input.GetButtonDown("Fire1")) {
 				shooting = true;
 			}
@@ -67,18 +51,8 @@ public class Gun_Controller : Controller {
 
 	}
 
-	public override void OnSwitchTo() {
-		player.position = UsingPosition.position;
-		GameObject go = player.gameObject;
-		go.SetActive (false);
-		active = true;
-	}
-
 	public override void OnSwitchFrom() {
-		player.position = ExitPosition.position;
-		GameObject go = player.gameObject;
-		go.SetActive (true);
-		active = false;
+		base.OnSwitchFrom ();
 		firstTime = true;
 	}
 }

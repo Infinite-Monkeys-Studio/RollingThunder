@@ -5,22 +5,21 @@ using UnityEngine;
 public class Station_Control : MonoBehaviour {
 
 	public ControlOrganizer organizer;
-	public Controller GunController;
+	public Controller ChildController;
 	public Collider2D Interactable_Area;
 	public string Player_Tag;
 	public SpriteRenderer Interactable_Indicator;
-	public bool Enter_Station;
+	public bool EnterableStation;
 
 	bool interacting = false;
 	bool inArea = false;
 	ContactFilter2D filter;
-	Transform player;
 
 	// Use this for initialization
 	void Start () {
 		filter = new ContactFilter2D ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -37,7 +36,6 @@ public class Station_Control : MonoBehaviour {
 		bool change = false;
 		foreach (Collider2D col in objs) {
 			if(col != null && col.tag == Player_Tag) {
-				player = col.transform;
 				inArea = true;
 				change = true;
 			}
@@ -54,9 +52,10 @@ public class Station_Control : MonoBehaviour {
 		}
 
 		if (inArea && interacting) {
-			Interactable_Indicator.transform.Rotate (0, 0, 10);
-			if(Enter_Station) {
-				organizer.SendMessage("switchTo", GunController.name);
+			if(EnterableStation) {
+				organizer.SendMessage("switchTo", ChildController.name);
+			} else {
+				Interactable_Indicator.transform.Rotate (0, 0, 10);
 			}
 		} else {
 			Interactable_Indicator.transform.rotation = new Quaternion(0, 0, 0, 0);
