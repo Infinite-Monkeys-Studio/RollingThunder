@@ -117,6 +117,10 @@ public class MeshGen : MonoBehaviour
 			
 			Mesh mesh = filter.mesh;
 			GenerateSegment(index, ref mesh);
+			//MeshCollider meCol = filter.GetComponent<MeshCollider>();
+			//meCol.sharedMesh = mesh; // add a the new mesh to the collider.
+			filter.GetComponent<ColliderCreator>().reupCollider();
+
 			
 			filter.transform.position = new Vector3(index * SegmentLength, 0, 0);
 			filter.gameObject.SetActive(true);
@@ -168,9 +172,10 @@ public class MeshGen : MonoBehaviour
 	private float GetHeight(float position)
 	{
 		float seed = 1;
-		float firstPass = Mathf.PerlinNoise (seed, position/40) * 10;
-		float secondPass = Mathf.PerlinNoise (seed, position/10) * 2;
-		return firstPass + secondPass;
+		float firstPass = Mathf.PerlinNoise (seed, position/40) * 10; // rolling hills
+		float secondPass = Mathf.PerlinNoise (seed, position/10) * 2; // bumps on the hills
+		float thirdPass = Mathf.PerlinNoise (seed, position/1f) * 0.5f; // rough ground
+		return firstPass + secondPass + thirdPass;
 		//return (Mathf.Sin(position) + 1.5f + Mathf.Sin(position * 1.75f) + 1f) / 2f;
 	}
 	
