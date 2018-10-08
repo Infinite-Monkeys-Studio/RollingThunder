@@ -234,6 +234,11 @@ Prefab:
       propertyPath: organizer
       value: 
       objectReference: {fileID: 2092897819}
+    - target: {fileID: 114203343419252876, guid: 1ce5954b581235740bd0d798a4afbf9e,
+        type: 2}
+      propertyPath: m_AirControlSpeed
+      value: 0.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce5954b581235740bd0d798a4afbf9e, type: 2}
   m_IsPrefabAsset: 0
