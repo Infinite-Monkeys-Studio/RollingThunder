@@ -10,6 +10,9 @@ TextureImporter:
     21300010: Log
     21300012: Branches
     21300014: Stump
+    21300016: Tree
+    21300018: Felled Tree
+    21300020: Stump
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -103,61 +106,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cover
+      name: Tree
       rect:
         serializedVersion: 2
         x: 0
-        y: 617
-        width: 357
-        height: 407
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 12, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67f60763287a0c2449f341aa1dab27ad
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Log
-      rect:
-        serializedVersion: 2
-        x: 731
-        y: 855
-        width: 370
-        height: 1003
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb85ac8c07e6f464182f5ffdb17ca320
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Branches
-      rect:
-        serializedVersion: 2
-        x: 1366
-        y: 0
+        y: 547
         width: 1550
-        height: 1858
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 2828
+      alignment: 9
+      pivot: {x: 0.5131558, y: 0.11945998}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0bc7d792ffdcd940978cbf8186be22d
+      spriteID: 0ac3f1417ed3cf84e8cef218974a300d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Felled Tree
+      rect:
+        serializedVersion: 2
+        x: 1864
+        y: 1055
+        width: 1550
+        height: 2531
+      alignment: 9
+      pivot: {x: 0.52511436, y: 0.014666331}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1940332ae97c1084d834b10d56598d7e
       vertices: []
       indices: 
       edges: []
@@ -166,18 +149,18 @@ TextureImporter:
       name: Stump
       rect:
         serializedVersion: 2
-        x: 496
+        x: 1685
         y: 0
-        width: 671
-        height: 387
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        width: 683
+        height: 379
+      alignment: 9
+      pivot: {x: 0.52499294, y: 0.91129416}
+      border: {x: 0, y: 0, z: 5, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ceb84ce62aca0b040b424f3947e94f94
+      spriteID: 8ac2c58c4e4eb854a959006fd2428f4f
       vertices: []
       indices: 
       edges: []

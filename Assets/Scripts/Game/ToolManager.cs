@@ -11,6 +11,7 @@ public class ToolManager : MonoBehaviour {
 	[SerializeField]
 	private Tool[] tools;
 
+	private bool toolRunning;
 
 	// Use this for initialization
 	void Start () {
@@ -25,13 +26,23 @@ public class ToolManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown ("Fire1")) {
-			if(activeTool >= 0) {
-				tools[activeTool].use();
-			}
+			toolRunning = true;
+		}
+
+		if (Input.GetButtonUp ("Fire1")) {
+			toolRunning = false;
 		}
 
 		if(Input.GetKeyDown("1")) {
 			switchTo(0);
+		}
+	}
+
+	void FixedUpdate() {
+		if (toolRunning) {
+			if(activeTool >= 0) {
+				tools [activeTool].use ();
+			}
 		}
 	}
 

@@ -21,9 +21,22 @@ public class ResourceTool : Tool {
 		Vector2 rayStart = new Vector2 (mousePosistion.x, mousePosistion.y);
 
 		RaycastHit2D hit = Physics2D.Raycast(rayStart, Vector2.zero, 0f);
-		if (hit.collider != null) {
-			Debug.Log (hit.transform.gameObject.name);
+		if (hit.transform != null) {
+			Harvestable resObj = hit.transform.GetComponent<Harvestable>();
+			if(resObj != null) {
+				if(resObj.workable) {
+					int result = resObj.work(Time.deltaTime);
+					Debug.Log (string.Format("Harvested {0} from {1}", result, resObj.name));
+					return;
+				} else {
+					Debug.Log("harvestable. not workable");
+					return;
+				}
+			}
+			Debug.Log("not harvestable");
+			return;
 		}
-
+		Debug.Log("nothing there");
+		return;
 	}
 }
