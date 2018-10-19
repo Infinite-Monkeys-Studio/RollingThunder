@@ -89,6 +89,17 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+	public void faceMouse() {
+		Vector3 mousePosistion = Input.mousePosition;
+		mousePosistion = Camera.main.ScreenToWorldPoint(mousePosistion);
+		
+		Vector2 direction = new Vector2(mousePosistion.x - transform.position.x, mousePosistion.y - transform.position.y);
+		
+		if (direction.x > 0 != m_FacingRight) {
+			Flip();
+		}
+	}
+
 
     private void Flip()
     {
@@ -99,6 +110,5 @@ public class CharacterController2D : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-		//transform.Rotate (Vector3.up, 180f);
     }
 }

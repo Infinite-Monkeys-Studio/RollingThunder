@@ -21,12 +21,16 @@ public class PlayerController : Controller {
 				jump = true;
 				animator.SetTrigger("Jump");
 			}
+
+
 		}
 	}
 
 	void FixedUpdate() {
 		if (active) {
 			controller.Move (horizontalMove * MovementSpeed, jump);
+			if(horizontalMove < .5f)
+				controller.faceMouse();
 			jump = false;
 		}
 	}
