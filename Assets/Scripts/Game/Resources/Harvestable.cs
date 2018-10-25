@@ -5,6 +5,7 @@ using UnityEngine;
 public class Harvestable : MonoBehaviour {
 
 	public bool workable;
+	public ResourceType type;
 	protected bool beingWorked;
 
 	[SerializeField]

@@ -40,11 +40,12 @@ public class StorageControl : MonoBehaviour {
 
 	private void addItem(StorageItem newItem) {
 		int parentIndex = StoredResources.IndexOf (newItem);
+		StorageItem item = StoredResources.Find (x => x.resourceType == newItem.resourceType);
 
-		if(parentIndex == -1) { // add a new entry we don't have this type yet
+		if(item == null) { // add a new entry we don't have this type yet
 			StoredResources.Add(newItem);
 		} else { // merge with exsisting entry
-			StoredResources[parentIndex].quantity += newItem.quantity;
+			item.quantity += newItem.quantity;
 		}
 	}
 

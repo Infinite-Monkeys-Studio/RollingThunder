@@ -956,6 +956,7 @@ MonoBehaviour:
   name: Resource Tool
   active: 0
   rotateTool: 1
+  control: {fileID: 821211639}
 --- !u!212 &359841161
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8872,6 +8873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workable: 1
+  type: 0
   life: 10
   timePerLife: 0.5
   animator: {fileID: 1390187999}

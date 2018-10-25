@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ResourceTool : Tool {
 
+	public StorageControl control;
 
 	// Use this for initialization
 	void Start () {
@@ -25,8 +26,13 @@ public class ResourceTool : Tool {
 			Harvestable resObj = hit.transform.GetComponent<Harvestable>();
 			if(resObj != null) {
 				if(resObj.workable) {
-					int result = resObj.work(Time.deltaTime);
-					Debug.Log (string.Format("Harvested {0} from {1}", result, resObj.name));
+					int quantity = resObj.work(Time.deltaTime);
+
+					control.addItem(resObj.type, quantity);
+
+
+
+					Debug.Log (string.Format("Harvested {0} from {1}", quantity, resObj.name));
 					return;
 				} else {
 					Debug.Log("harvestable. not workable");
