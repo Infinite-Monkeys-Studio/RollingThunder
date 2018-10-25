@@ -12,7 +12,7 @@ public abstract class Tool : MonoBehaviour {
 	private bool rotateTool = true;
 	
 	// Update is called once per frame
-	protected void Update () {
+	protected virtual void Update () {
 		if (active && rotateTool) {
 
 			Vector3 mousePosistion = Input.mousePosition;

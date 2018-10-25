@@ -39,7 +39,6 @@ public class StorageControl : MonoBehaviour {
 	}
 
 	private void addItem(StorageItem newItem) {
-		int parentIndex = StoredResources.IndexOf (newItem);
 		StorageItem item = StoredResources.Find (x => x.resourceType == newItem.resourceType);
 
 		if(item == null) { // add a new entry we don't have this type yet

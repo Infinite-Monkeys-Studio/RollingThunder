@@ -9,7 +9,7 @@ public class Vehicle_Control : Controller {
 	float throttle;
 
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
 		base.Update ();
 		if (active) {
 			throttle = Input.GetAxisRaw ("Horizontal");

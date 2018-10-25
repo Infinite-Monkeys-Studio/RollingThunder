@@ -12,7 +12,7 @@ public class PlayerController : Controller {
 	bool jump = false;
 
 
-	void Update() {
+	public override void Update() {
 		if (active) {
 			horizontalMove = Input.GetAxisRaw ("Horizontal");
 			animator.SetFloat("Speed", Mathf.Abs (horizontalMove));

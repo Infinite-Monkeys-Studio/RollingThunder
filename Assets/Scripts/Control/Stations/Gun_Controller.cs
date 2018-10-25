@@ -9,12 +9,11 @@ public class Gun_Controller : Controller {
 	public GameObject bullet;
 	public float bulletSpeed;
 
-	bool firstTime = true;
 	bool shooting = false;
 	float fireDelay = 0;
 
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
 		base.Update ();
 		if (active) {
 			if(Input.GetButtonDown("Fire1")) {
@@ -53,6 +52,5 @@ public class Gun_Controller : Controller {
 
 	public override void OnSwitchFrom() {
 		base.OnSwitchFrom ();
-		firstTime = true;
 	}
 }
