@@ -15,7 +15,7 @@ public abstract class Controller : MonoBehaviour {
 	protected Transform player;
 	private bool interactFlag = false;
 
-	void Start() {
+	public virtual void Start() {
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 	}
 

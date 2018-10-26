@@ -49,8 +49,4 @@ public class Gun_Controller : Controller {
 		b.GetComponent<Rigidbody2D>().AddForce(b.transform.up.normalized * bulletSpeed);
 
 	}
-
-	public override void OnSwitchFrom() {
-		base.OnSwitchFrom ();
-	}
 }

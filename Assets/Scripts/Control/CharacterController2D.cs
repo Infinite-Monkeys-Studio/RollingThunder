@@ -43,6 +43,15 @@ public class CharacterController2D : MonoBehaviour
 		animator.SetBool ("Fall", !m_Grounded);
     }
 
+	public void Climb(float climb, float move) {
+		float targetMove = move;
+
+		if (!m_Grounded) {
+			targetMove = move;
+		}
+
+		m_Rigidbody2D.velocity = new Vector3 (targetMove, climb);
+	}
 
     public void Move(float move, bool jump)
     {
