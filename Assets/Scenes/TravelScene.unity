@@ -472,6 +472,7 @@ MonoBehaviour:
   EnterableController: 1
   UsingPosition: {fileID: 1348671299}
   ExitPosition: {fileID: 1813805348}
+  player: {fileID: 1501955149}
   max_speed: 40
 --- !u!114 &53730012
 MonoBehaviour:
@@ -10022,6 +10023,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1494945559}
   m_CullTransparentMesh: 0
+--- !u!4 &1501955149 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4497276214009756, guid: 1ce5954b581235740bd0d798a4afbf9e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1817600729}
 --- !u!1 &1513287390
 GameObject:
   m_ObjectHideFlags: 0
@@ -10757,7 +10763,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1813805347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6, y: 0, z: 0}
+  m_LocalPosition: {x: -2.56, y: 0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1513287394}
@@ -10812,6 +10818,11 @@ Prefab:
       propertyPath: organizer
       value: 
       objectReference: {fileID: 1045984344}
+    - target: {fileID: 114007331395792868, guid: 1ce5954b581235740bd0d798a4afbf9e,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1501955149}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce5954b581235740bd0d798a4afbf9e, type: 2}
   m_IsPrefabAsset: 0
@@ -10944,6 +10955,7 @@ MonoBehaviour:
   EnterableController: 1
   UsingPosition: {fileID: 1888083117}
   ExitPosition: {fileID: 2070235990}
+  player: {fileID: 1501955149}
   fireRate: 0.25
   Barrel: {fileID: 283123536}
   bullet: {fileID: 1286116436549060, guid: 8759765b4a838b0429ed9a58a6699c7a, type: 2}
@@ -11031,7 +11043,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2070235989}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.81, y: 1.9, z: 0}
+  m_LocalPosition: {x: 0.15, y: 3.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 397588441}

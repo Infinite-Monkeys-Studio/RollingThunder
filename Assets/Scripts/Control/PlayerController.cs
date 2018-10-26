@@ -15,8 +15,7 @@ public class PlayerController : Controller {
 	bool onLadder = false;
 	float baseGravityScale;
 
-	public override void Start() {
-		base.Start ();
+	void Start() {
 		baseGravityScale = GetComponent<Rigidbody2D> ().gravityScale;
 	}
 

@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ControlOrganizer : MonoBehaviour {
-	/*
-	 * controllerlist
-	 * 
-	 * 
-	 */
 
-	//[SerializeField]IController[] controllerList;
 	[SerializeField]Controller[] controllerList;
 	[SerializeField]int activeControllerId = 0;
 
@@ -17,10 +11,6 @@ public class ControlOrganizer : MonoBehaviour {
 	void Start () {
 		controllerList [activeControllerId].OnSwitchTo ();
 	}
-
-	/*public IController getActiveController() {
-		return controllerList [activeControllerId];
-	}*/
 
 	public void switchTo(string newControl) {
 		for (int i = 0; i < controllerList.Length; i++) {
@@ -33,6 +23,7 @@ public class ControlOrganizer : MonoBehaviour {
 	}
 
 	void switchTo(int newControllerId) {
+		Debug.Log ("switch to " + newControllerId);
 		controllerList [activeControllerId].OnSwitchFrom ();
 		
 		controllerList [newControllerId].OnSwitchTo ();

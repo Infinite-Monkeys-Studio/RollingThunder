@@ -11,21 +11,17 @@ public abstract class Controller : MonoBehaviour {
 	public Transform UsingPosition;
 	public Transform ExitPosition;
 
+	private float switchTime;
 
+	[SerializeField]
 	protected Transform player;
-	private bool interactFlag = false;
-
-	public virtual void Start() {
-		player = GameObject.FindGameObjectWithTag ("Player").transform;
-	}
 
 	public virtual void Update() {
-		if (active && Input.GetButtonUp ("Interact")) {
-			interactFlag = true;
-		}
-
-		if(active && Input.GetButtonDown("Interact") && interactFlag) {
-			organizer.switchTo(player.GetComponent<Controller>().name);
+		if (Time.time - switchTime > .5f) {
+			if (active && Input.GetButtonDown ("Interact")) {
+				organizer.switchTo ("Player");
+				Debug.Log ("switch calling");
+			}
 		}
 	}
 
@@ -34,9 +30,12 @@ public abstract class Controller : MonoBehaviour {
 			player.position = UsingPosition.position;
 			GameObject go = player.gameObject;
 			go.SetActive (false);
+			Debug.Log ("switched to enterable");
 		}
 
+		switchTime = Time.time;
 		active = true;
+		Debug.Log ("switched to");
 	}
 
 	public virtual void OnSwitchFrom() {
@@ -44,9 +43,10 @@ public abstract class Controller : MonoBehaviour {
 			player.position = ExitPosition.position;
 			GameObject go = player.gameObject;
 			go.SetActive (true);
+			Debug.Log ("switched from enterable");
 		}
-		interactFlag = false;
 		active = false;
+		Debug.Log ("1");
 	}
 
 }

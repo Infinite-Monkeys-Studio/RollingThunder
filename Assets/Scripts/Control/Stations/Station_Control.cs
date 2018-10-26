@@ -53,7 +53,7 @@ public class Station_Control : MonoBehaviour {
 
 		if (inArea && interacting) {
 			if(EnterableStation) {
-				organizer.SendMessage("switchTo", ChildController.name);
+				organizer.switchTo(ChildController.name);
 			} else {
 				Interactable_Indicator.transform.Rotate (0, 0, 10);
 			}
